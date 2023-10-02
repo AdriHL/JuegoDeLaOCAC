@@ -1,32 +1,71 @@
-# Prerequisites
-*.d
+#include <iostream>
+#include<stdlib.h>
+#include<time.h>
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+using namespace std;
 
-# Precompiled Headers
-*.gch
-*.pch
+int main() {
+	char resp, letra;
+	int edad, num;
+	cout<<"Desea ejecturar el programa s/n: ";		cin>>resp;
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
 
-# Fortran module files
-*.mod
-*.smod
+	if (resp== 's'|| resp=='S')
+	{
+		cout<<"Ha decidido ejecutar el programa"<<endl;
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
 
-# Executables
-*.exe
-*.out
-*.app
+
+
+	cout<<"¿Que edad tienes?"<<endl;	cin>>edad;
+
+	if ((edad>=8)&&(edad<99))
+	{
+		srand(time(NULL)); //Generamos numero aleatorio en base al tiempo
+		num=rand() % 7 + 1; //Le indicamos que el numero será entre 1-6
+		cout<<"Has sacado un ";
+		printf("%d",num);
+
+		if (num==5)
+		{
+			cout<<"\nQue suerte de OCA a OCA";
+		}
+
+
+		cout<<"\nintroduzca una letra"; cin>>letra;
+
+		switch (letra){
+
+
+		case 'N': cout<<"Esta casilla no es especial"; break;
+		case 'O': cout<<"Has caido en una OCA"; break;
+		case 'P': cout<<"Has caido en un puente"; break;
+		case 'S': cout<<"Has caido en la posada"; break;
+		case 'D': cout<<"Has caido en dados"; break;
+		case 'V': cout<<"Has caido en calavera"; break;
+		case 'C': cout<<"Has caido en la Cárcel"; break;
+		case 'Z': cout<<"Has caido en el pozo"; break;
+		default: cout<<"Has introducido una letra incorrecta"; break;
+		}
+	}
+
+	if (edad<8)
+	{
+		cout<<"Eres demasiado pequeño para jugar a la OCA"<<endl;
+	}
+
+	if (edad>99)
+	{
+		cout<<"Ya no estas para estos juegos"<<endl;
+	}
+	}
+	else
+		{
+			cout << "Hasta pronto" << endl;
+		}
+
+
+
+
+	return 0;
+}
